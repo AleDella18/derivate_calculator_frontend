@@ -12,7 +12,7 @@ export type AuthResponse = {
 
 export const createPost = async (payload: PayLoad): Promise<DiffResponse> => {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_BASE_URL}/expression`,
+    `api/backend/expression`,
     {
       method: "POST",
       headers: { "Content-Type": "application/json"},
