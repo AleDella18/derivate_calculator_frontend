@@ -31,7 +31,7 @@ export const createPost = async (payload: PayLoad): Promise<DiffResponse> => {
 
 export const signUp = async (payload: User): Promise<AuthResponse> => {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_BASE_URL}/signup`,
+    `/api/backend/signup`,
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -50,7 +50,7 @@ export const signUp = async (payload: User): Promise<AuthResponse> => {
 
 export const signIn = async (payload: User): Promise<AuthResponse> => {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_BASE_URL}/signin`,
+    `/api/backend/signin`,
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },
