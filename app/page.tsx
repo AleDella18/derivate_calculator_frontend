@@ -13,9 +13,6 @@ import ShowGraphPopup from "./components/ShowGraphPopup";
 import CoffeeButton from "./components/CoffeeButton";
 import Loader from "./components/Loader";
 
-const BACKEND_URL =
-  process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000";
-
 export default function Calculator() {
   const [value, setValue] = useState<string>("");
   const [diffVar, setDiffVar] = useState<string>("");
@@ -23,7 +20,7 @@ export default function Calculator() {
   const [showError, setShowError] = useState(true);
   const [openFns, setOpenFns] = useState(false);
 
-  const [imgPath, setImgPath] = useState<string>("");
+  const [fullImageUrl, setFullImageUrl] = useState<string>("");
   const [showGraphPopup, setShowGraphPopup] = useState(false);
 
   const { mutate, isPending, isError, error } = useCreateExpression();
@@ -32,7 +29,7 @@ export default function Calculator() {
     setValue("");
     setDiffVar("");
     setResult("");
-    setImgPath("");
+    setFullImageUrl("");
     setShowGraphPopup(false);
     setOpenFns(false);
   };
@@ -65,7 +62,7 @@ export default function Calculator() {
     mutate(payload, {
       onSuccess: (data) => {
         setResult(data.derivative);
-        setImgPath(data.img_path || "");
+        setFullImageUrl(data.img_path || "");
       },
     });
   };
@@ -104,10 +101,6 @@ export default function Calculator() {
     { type: "arccsch()", value: "arccsch(" },
     { type: "arccoth()", value: "arccoth(" },
   ];
-
-  const fullImageUrl = imgPath
-    ? `${BACKEND_URL}${imgPath.startsWith("/") ? "" : "/"}${imgPath}`
-    : "";
 
   return (
     <>
@@ -170,7 +163,7 @@ export default function Calculator() {
 
                 <LatexPreview expression={result} content="Preview result" />
 
-                {imgPath && (
+                {fullImageUrl && (
                   <Button
                     type="Show graph"
                     onClick={() => setShowGraphPopup(true)}
