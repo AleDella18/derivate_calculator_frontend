@@ -82,7 +82,6 @@ There is no `.env.example` file in this repository. Create a local `.env.local` 
 
 | Variable | Required | Used by | Description | Example |
 | --- | --- | --- | --- | --- |
-| `NEXT_PUBLIC_API_BASE_URL` | Yes | Browser/client requests | Public backend base URL used for authentication, derivative requests, and graph image URLs. | `http://localhost:8000` |
 | `SECRET_KEY` | Recommended for protected routes | Next.js middleware | JWT secret used to verify the `auth_token` cookie. The middleware contains a development fallback, but production deployments should set this explicitly to match the backend signing secret. | `replace-with-a-secure-secret` |
 
 ## Running the Application
@@ -128,19 +127,11 @@ Backend communication is implemented in `app/api/clients.ts` with `fetch` reques
 
 | Frontend action | Method | Endpoint | Payload | Response |
 | --- | --- | --- | --- | --- |
-| Differentiate expression | `POST` | `${NEXT_PUBLIC_API_BASE_URL}/expression` | `{ expr, diff_var }` | `{ derivative, img_path }` |
-| Register user | `POST` | `${NEXT_PUBLIC_API_BASE_URL}/signup` | `{ username, password }` | `{ message }` |
-| Sign in user | `POST` | `${NEXT_PUBLIC_API_BASE_URL}/signin` | `{ username, password }` | `{ message }` |
+| Differentiate expression | `POST` | `/api/backend/expression` | `{ expr, diff_var }` | `{ derivative, img_path }` |
+| Register user | `POST` | `/api/backend/signup` | `{ username, password }` | `{ message }` |
+| Sign in user | `POST` | `/api/backend/signin` | `{ username, password }` | `{ message }` |
 
-### Backend Base URL
-
-Set `NEXT_PUBLIC_API_BASE_URL` to the backend origin. Because this variable starts with `NEXT_PUBLIC_`, it is exposed to browser-side code by Next.js.
-
-```env
-NEXT_PUBLIC_API_BASE_URL=http://localhost:8000
-```
-
-The calculator page also uses the same base URL to build full graph image URLs from backend-provided `img_path` values.
+The calculator uses the backend-provided `img_path` value directly as the full graph image URL. API requests are sent through the `/api/backend` rewrite configured in `next.config.ts`.
 
 ### Authentication
 
