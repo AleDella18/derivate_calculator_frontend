@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useCreateUser } from "@/app/hooks/useCreateUser";
 import Alert from "../components/Badge";
 import Loader from "../components/Loader";
+import PasswordInput from "../components/PasswordInput";
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -131,8 +132,7 @@ export default function RegisterPage() {
                   >
                     Your Password
                   </label>
-                  <input
-                    type="password"
+                  <PasswordInput
                     name="password"
                     id="password"
                     placeholder="********"
@@ -150,8 +150,7 @@ export default function RegisterPage() {
                   >
                     Confirm Password
                   </label>
-                  <input
-                    type="password"
+                  <PasswordInput
                     name="confirmPassword"
                     id="confirmPassword"
                     placeholder="********"
