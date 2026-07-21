@@ -6,6 +6,7 @@ import { useLoginUser } from "@/app/hooks/useLoginUser";
 import Link from "next/link";
 import Alert from "../components/Badge";
 import Loader from "../components/Loader";
+import PasswordInput from "../components/PasswordInput";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -117,8 +118,7 @@ export default function LoginPage() {
                   >
                     Your Password
                   </label>
-                  <input
-                    type="password"
+                  <PasswordInput
                     name="password"
                     id="password"
                     placeholder="********"
