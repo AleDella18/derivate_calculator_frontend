@@ -1,4 +1,4 @@
-# derivative-calculator-frontend
+# Derivative Calculator Frontend
 
 A Next.js frontend for a derivative calculator application. The app provides authenticated access to a calculator UI, sends expressions to a backend service for differentiation, renders LaTeX previews, and displays generated graph images when the backend returns one.
 
