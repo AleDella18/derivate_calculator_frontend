@@ -14,21 +14,21 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  applicationName: "Derivative Calculator",
-  title: "Derivative Calculator",
+  applicationName: "Derivative Calculator Frontend",
+  title: "Derivative Calculator Frontend",
   description:
     "Calculate symbolic derivatives, preview mathematical expressions, and visualize function graphs.",
   manifest: "/manifest.json",
   openGraph: {
-    title: "Derivative Calculator",
+    title: "Derivative Calculator Frontend",
     description:
       "Calculate symbolic derivatives, preview mathematical expressions, and visualize function graphs.",
-    siteName: "Derivative Calculator",
+    siteName: "Derivative Calculator Frontend",
     type: "website",
   },
   twitter: {
     card: "summary",
-    title: "Derivative Calculator",
+    title: "Derivative Calculator Frontend",
     description:
       "Calculate symbolic derivatives, preview mathematical expressions, and visualize function graphs.",
   },

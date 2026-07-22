@@ -1,6 +1,6 @@
 {
-  "name": "Derivative Calculator",
-  "short_name": "Derivative Calculator",
+  "name": "Derivative Calculator Frontend",
+  "short_name": "Derivative Calculator Frontend",
   "description": "Calculate symbolic derivatives, preview mathematical expressions, and visualize function graphs.",
   "start_url": "/",
   "display": "standalone",
